@@ -12,6 +12,9 @@
                 </h1>
 
                 <h2>
+                   Tipologia di progetto: {{ $project->type->title }}
+                </h2>
+                <h2>
                     Slug: {{ $project->slug }}
                 </h2>
 
