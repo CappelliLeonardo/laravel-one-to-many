@@ -8,6 +8,8 @@ use Illuminate\Database\Seeder;
 use App\Models\Project;
 //Helpers
 use Illuminate\Support\Str;
+//Helpers
+use Illuminate\Support\Facades\Schema;
 
 class ProjectSeeder extends Seeder
 {
@@ -16,7 +18,9 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
+        Schema::disableForeignKeyConstraints();
         Project::truncate();
+        Schema::enableForeignKeyConstraints();
         
             for ($i = 0; $i < 10; $i++) {
                 $titleForMassAssignment = fake()->sentence();

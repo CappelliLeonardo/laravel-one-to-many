@@ -14,4 +14,11 @@ class Project extends Model
         "slug",
         'content',
     ] ;
+
+    //Relazioni fra le due tabelle
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }
