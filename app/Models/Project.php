@@ -13,6 +13,7 @@ class Project extends Model
         "title",
         "slug",
         'content',
+        'type_id'
     ] ;
 
     //Relazioni fra le due tabelle

@@ -6,6 +6,9 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 //Models
 use App\Models\Project;
+
+//utilizziamo il model type per "rendere disponibile la tabella type nel db"
+use App\Models\Type;
 //Helpers
 use Illuminate\Support\Str;
 //Helpers
@@ -29,6 +32,7 @@ class ProjectSeeder extends Seeder
                 'title' => $titleForMassAssignment,
                 'slug' => $slugForMassAssignment,
                 'content' => fake()->paragraph(),
+                'type_id'=> Type::inRandomOrder()->first()->id,
             ]);
         }
             

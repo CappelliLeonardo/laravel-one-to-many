@@ -33,6 +33,7 @@ return new class extends Migration
 
                 //abilito la cancellazione della colonna con foreing key
                 $table->dropForeign(['type_id']);
+                
                 $table->dropColumn('type_id');
             }
         });

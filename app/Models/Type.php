@@ -14,7 +14,7 @@ class Type extends Model
         'slug',
     ];
 
-
+    //Relazioni fra le due tabelle
     public function project()
     {
         return $this->hasMany(Project::class);
