@@ -23,6 +23,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Title</th>
+                                    <th scope="col">Type of project</th>
                                     <th scope="col">Slug</th>
                                     <th scope="col">Created at</th>
                                     <th scope="col">Actions</th>
@@ -33,6 +34,8 @@
                                     <tr>
                                         <th scope="row">{{ $project->id }}</th>
                                         <td>{{ $project->title }}</td>
+                                        
+                                        <td>{{ $project->type ? $project->type->title : 'N/A' }}</td>
                                         <td>{{ $project->slug }}</td>
                                         <td>{{ $project->created_at }}</td>
                                         <td>

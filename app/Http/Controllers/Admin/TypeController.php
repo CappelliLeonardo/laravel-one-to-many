@@ -37,7 +37,7 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         $typeData = $request->validate([
-            'title' => 'require|string|max32'
+            'title' => 'required|string|max32'
         ]);
 
         $slug = str()->slug($typeData['title']);
@@ -47,7 +47,7 @@ class TypeController extends Controller
             'slug'=> $slug,
         ]);
 
-        return redirect()->route('admin.types.show', ['type'=> $type->id]);
+        return redirect()->route('admin.types.show', ['type'=> $type->slug]);
     }
 
     /**
@@ -55,7 +55,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        return view ('admin.types.show', ['type' =>$type->id]);
+        return view ('admin.types.show', ['type' =>$type->slug]);
     }
 
     /**
@@ -63,7 +63,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        return view ('admin.types.edit', ['type' =>$type->id]);
+        return view ('admin.types.edit', ['type' =>$type->slug]);
         
     }
 
@@ -73,7 +73,7 @@ class TypeController extends Controller
     public function update(Request $request, Type $type)
     {
         $typeData = $request->validate([
-            'title' => 'require|string|max32'
+            'title' => 'required|string|max32'
         ]);
 
         $slug = str()->slug($typeData['title']);
@@ -83,7 +83,7 @@ class TypeController extends Controller
             'slug'=> $slug,
         ]);
 
-        return redirect()->route('admin.types.show', ['type'=> $type->id]);
+        return redirect()->route('admin.types.show', ['type'=> $type->slug]);
     }
 
     /**
