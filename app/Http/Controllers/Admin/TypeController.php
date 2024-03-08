@@ -53,37 +53,42 @@ class TypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Type $type)
+    public function show(string $slug)
     {
-        return view ('admin.types.show', ['type' =>$type->slug]);
+        $type = Type::where('slug', $slug)->firstOrFail();
+        return view ('admin.types.show', compact('type'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Type $type)
+    public function edit(string $slug)
     {
-        return view ('admin.types.edit', ['type' =>$type->slug]);
+        
+        $type=Type::where('slug',$slug)->firstOrFail();
+        return view ('admin.types.edit',compact ('type'));
         
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Type $type)
+    public function update(Request $request, string $slug)
     {
-        $typeData = $request->validate([
-            'title' => 'required|string|max32'
-        ]);
+        // $typeData = $request->validate([
+        //     'title' => 'required|string|max32'
+        // ]);
 
-        $slug = str()->slug($typeData['title']);
+        // $slug = str()->slug($typeData['title']);
 
-        $type->update([
-            'title' => $typeData['title'],
-            'slug'=> $slug,
-        ]);
+        // $type->update([
+        //     'title' => $typeData['title'],
+        //     'slug'=> $slug,
+        // ]);
 
-        return redirect()->route('admin.types.show', ['type'=> $type->slug]);
+        // return redirect()->route('admin.types.show', ['type'=> $type->id]);
+        $type = Type::where('slug', $slug)->firstOrFail();
+        return view('admin.types.edit', compact('type'));
     }
 
     /**

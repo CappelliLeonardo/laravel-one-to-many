@@ -26,9 +26,9 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label for="title" class="form-label">Titolo <span class="text-danger">*</span></label>
+                        <label for="title" class="form-label">Type<span class="text-danger">*</span></label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
-                            name="title" placeholder="Inserisci il Titolo..." maxlength="255" 
+                            name="title" placeholder="Inserisci il nuovo type" maxlength="255" 
                             value="{{ old('title') }}">
                         @error('title')
                             <div class="alert alert-danger">

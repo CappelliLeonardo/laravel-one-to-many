@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', $type->title . 'Edit')
+@section('page-title','Edit')
 
 @section('main-content')
     <h1 class="text-center">
@@ -26,15 +26,15 @@
                     </div>
                 @endif
 
-                <form action="{{ route('admin.types.show', ['project' => $project->slug]) }}" method="POST">
+                <form action="{{ route('admin.types.show', ['type' => $type->slug]) }}" method="POST">
 
                     @csrf
 
                     @method('PUT')
 
                     <div class="mb-3">
-                        <label for="title" class="form-label">Titolo <span class="text-danger">*</span></label>
-                        <input value="{{ old('title', $project->title) }}" type="text"
+                        <label for="title" class="form-label">Tipo<span class="text-danger">*</span></label>
+                        <input value="{{ old('title', $type->title) }}" type="text"
                             class="form-control @error('title') is-invalid @enderror" id="title" name="title"
                             placeholder="Inserisci il titolo..." maxlength="255">
                         @error('title')
